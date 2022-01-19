@@ -1,0 +1,20 @@
+version: '3'
+services:
+  nextjs:
+    image: secomm/cms:${BITBUCKET_COMMIT}
+    depends_on:
+      - mysql
+    container_name: cms-app
+    networks:
+      - cms
+
+  mysql: 
+    image: mysql:5.7
+    container_name: cms-mysql
+    networks:
+      - cms
+
+networks:
+  cms:
+    external: false
+    name: cms

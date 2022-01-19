@@ -1,0 +1,12 @@
+version: '3'
+services:
+  nextjs:
+    image: secomm/cosemart-landing:${BITBUCKET_COMMIT}
+    container_name: landing-app
+    networks:
+      - landing
+
+networks:
+  landing:
+    external: false
+    name: landing
